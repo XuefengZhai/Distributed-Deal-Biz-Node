@@ -24,6 +24,7 @@
 		2FCFDC821909ACA000CEF661 /* DistributedD_BizTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FCFDC811909ACA000CEF661 /* DistributedD_BizTests.m */; };
 		2FCFDC8F1909ADA900CEF661 /* LogIn.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FCFDC8C1909ADA900CEF661 /* LogIn.m */; };
 		2FCFDC901909ADA900CEF661 /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FCFDC8E1909ADA900CEF661 /* SignUpViewController.m */; };
+		47D99D56190DE66D006845A2 /* AsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 47D99D55190DE66D006845A2 /* AsyncSocket.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +63,8 @@
 		2FCFDC8C1909ADA900CEF661 /* LogIn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogIn.m; sourceTree = "<group>"; };
 		2FCFDC8D1909ADA900CEF661 /* SignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUpViewController.h; sourceTree = "<group>"; };
 		2FCFDC8E1909ADA900CEF661 /* SignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignUpViewController.m; sourceTree = "<group>"; };
+		47D99D54190DE66D006845A2 /* AsyncSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncSocket.h; sourceTree = "<group>"; };
+		47D99D55190DE66D006845A2 /* AsyncSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncSocket.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +94,7 @@
 		2FCFDC471909ACA000CEF661 = {
 			isa = PBXGroup;
 			children = (
+				47D99D53190DE47D006845A2 /* SocketComm */,
 				2FCFDC591909ACA000CEF661 /* DistributedD_Biz */,
 				2FCFDC7B1909ACA000CEF661 /* DistributedD_BizTests */,
 				2FCFDC521909ACA000CEF661 /* Frameworks */,
@@ -165,6 +169,16 @@
 				2FCFDC7E1909ACA000CEF661 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		47D99D53190DE47D006845A2 /* SocketComm */ = {
+			isa = PBXGroup;
+			children = (
+				47D99D54190DE66D006845A2 /* AsyncSocket.h */,
+				47D99D55190DE66D006845A2 /* AsyncSocket.m */,
+			);
+			name = SocketComm;
+			path = DistributedD_Biz;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -270,6 +284,7 @@
 				2FCFDC641909ACA000CEF661 /* AppDelegate.m in Sources */,
 				2FCFDC6A1909ACA000CEF661 /* FirstViewController.m in Sources */,
 				2FCFDC601909ACA000CEF661 /* main.m in Sources */,
+				47D99D56190DE66D006845A2 /* AsyncSocket.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -397,6 +412,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DistributedD_Biz/DistributedD_Biz-Prefix.pch";
 				INFOPLIST_FILE = "DistributedD_Biz/DistributedD_Biz-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -410,6 +426,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DistributedD_Biz/DistributedD_Biz-Prefix.pch";
 				INFOPLIST_FILE = "DistributedD_Biz/DistributedD_Biz-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

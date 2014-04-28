@@ -7,9 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AsyncSocket.h"
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
+@interface AppDelegate : UIResponder <UIApplicationDelegate, AsyncSocketDelegate>{
+    AsyncSocket *clientSocket;
+    AsyncSocket *socketServer;
+}
 
 @property (strong, nonatomic) UIWindow *window;
+
+
 
 @end

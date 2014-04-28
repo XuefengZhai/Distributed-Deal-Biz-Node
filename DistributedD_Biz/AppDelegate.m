@@ -13,8 +13,51 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+
+    socketServer = [[AsyncSocket alloc] initWithDelegate:self];
+    
+    NSError *error = nil;
+    if (![socketServer acceptOnPort:8001 error:&error])
+    {
+		NSLog(@"Unable to listen to due to invalid configuration: %@", error);
+	}
+    NSLog(@"- Server is listening -");
+    
     return YES;
 }
+
+#pragma SocketCommunication
+- (void)onSocket:(AsyncSocket *)sock didAcceptNewSocket:(AsyncSocket *)newSocket
+{
+    NSLog(@"- A new client connected to the server -");
+    clientSocket = newSocket;
+    [clientSocket setDelegate:self];
+    [clientSocket readDataWithTimeout:-1 tag:0];
+
+}
+- (void)onSocket:(AsyncSocket *)sock didReadData:(NSData *)data withTag:(long)tag
+{
+	NSString *response = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+    NSLog(@"Client socket read data:  \n%@",response);
+    
+    //Send reply
+    NSString *replyStr;
+    if([response isEqualToString:@"getInfo"])
+        replyStr = @"Name:Business1, SomeOtherInfo:ROFL";
+    else if([response isEqualToString:@"getDeals"])
+        replyStr = @"Name:Deal1, Desc:Description1";
+    else if([response isEqualToString:@"subscribe"])
+        replyStr = @"Subscription:OK";
+    else
+        replyStr = @"Bad Request";
+    NSData *replyData = [replyStr dataUsingEncoding:NSUTF8StringEncoding];
+    [clientSocket writeData:replyData withTimeout:-1 tag:0];
+    
+    //Read again
+    [clientSocket readDataWithTimeout:-1 tag:0];
+}
+
+#pragma AppLife-cycle
 							
 - (void)applicationWillResignActive:(UIApplication *)application
 {

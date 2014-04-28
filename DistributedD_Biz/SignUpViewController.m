@@ -99,7 +99,7 @@
     NSString *ageText = age.text;
     IPAdd = [self getIPAddress:true];
     NSString *urlFinal = [NSString stringWithFormat:
-                          @"%@Email=%@&Psw=%@&Name=%@&Disc=%@&Location=%@+%@&IP=%@",
+                          @"%@Email=%@&Psw=%@&Name=%@&Dsc=%@&Location=%@+%@&IP=%@",
                           urlBaseString,emailText,pswText,nameText,ageText,lat,lng,IPAdd];
     
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
